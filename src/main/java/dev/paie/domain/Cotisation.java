@@ -1,14 +1,27 @@
-package dev.paie.entite;
+package dev.paie.domain;
 
 import java.math.BigDecimal;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class Cotisation {
+	@Id
+	@GeneratedValue
 	private Integer id;
 	private String code;
 	private String libelle;
 	private BigDecimal tauxSalarial;
 	private BigDecimal tauxPatronal;
 	private Boolean imposable = false;
+
+	@Override
+	public String toString() {
+		return "Cotisation [code=" + code + ", libelle=" + libelle + ", tauxSalarial=" + tauxSalarial
+				+ ", tauxPatronal=" + tauxPatronal + ", imposable=" + imposable + "]";
+	}
 
 	public String getCode() {
 		return code;
